@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.6/angular.min.js"></script>
+	<script src="items.js"></script>
+	<script src="login.js"></script>
+
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="header" ng-controller="LoginController">
+	<div ng-if="loggedIn">
+		  <span>
+			  <img ng-src="{{photoUrl}}" width="50" />
+			  Hi {{name}}
+		  </span>
+		<a href="/auth/logout">Logout</a>
+
+	</div>
+	<ul ng-if="!loggedIn">
+		<li><a href="/auth/google">Login with Google</a></li>
+		<li><a href="/auth/facebook">Login with Facebook</a></li>
+	</ul>
+</div>
+
+
+<div class="col-md-6" ng-controller="ItemsController">
+	<h1>Items</h1>
+	<ul>
+		<li ng-repeat="item in items">
+			{{item.name}}
+		</li>
+	</ul>
+	<form ng-submit="add()">
+		<input type="text" ng-model="newName" size="30" placeholder="Name">
+		<input class="btn-primary" type="submit" value="add">
+	</form>
+</div>
+</body>
+</html>

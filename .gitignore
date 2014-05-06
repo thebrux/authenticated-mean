@@ -1,0 +1,19 @@
+# IntelliJ Idea noise
+.idea
+*.iws
+*.ipr
+*.iml
+*.releaseBackup
+
+# osx noise
+.DS_Store
+profile
+
+# eclipse noise
+.settings
+.settings/*
+.project
+.classpath
+
+# node
+node_modules
